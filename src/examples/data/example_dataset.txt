@@ -1,0 +1,8 @@
+First line
+Second line
+Third...
+Empty line next:
+
+Another line...
+Some symbols: !"£$%&/()=?^
+End of data
