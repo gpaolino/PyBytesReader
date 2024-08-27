@@ -1,6 +1,12 @@
 #!.venv\Scripts\python.exe
 
-from pybytesreader.modules.core_functions import read_file_from_line_byte_by_byte as rfflbbb
+try:
+    from pybytesreader.modules.core_functions import \
+        read_file_from_line_byte_by_byte as rfflbbb
+except ImportError as e:
+    import logging
+    logging.log(logging.ERROR, "Please run 'pip install -r requirements.txt'")
+    raise e
 
 def main() -> None:
 

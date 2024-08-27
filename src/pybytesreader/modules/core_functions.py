@@ -1,4 +1,14 @@
+import logging
+import os.path
+
+
+def set_output_directory() -> None:
+    output_dir = './output/'
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
 def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number_of_bytes) -> None:
+    # todo set default output directory
     try:
         with open(input_file, 'rb') as infile, open(output_file, 'wb') as outfile:
 
@@ -20,11 +30,9 @@ def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number
                 current_byte += 1
             print(f'I just read the first ', number_of_bytes, ' bytes of the row number ', start_line)
             
-    except FileNotFoundError as e:
-        print(f"Errore: {e}")
-    except IsADirectoryError as e:
-        print(f"Errore: {e}")
-    except PermissionError as e:
-        print(f"Errore: {e}")
+    except (FileNotFoundError, IsADirectoryError, PermissionError) as e:
+        logging.log(logging.ERROR, f"{e}")
+        raise e
     except Exception as e:
-        print(f"Errore imprevisto: {e}")
+        logging.log(logging.ERROR, f"Unexpected error: {e}")
+        raise e
