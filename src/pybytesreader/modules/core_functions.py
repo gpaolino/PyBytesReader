@@ -1,6 +1,12 @@
 import logging
 import os.path
 
+import pkg_resources
+
+
+def print_version() -> None:
+    version = pkg_resources.require("pybytesreader")[0].version
+    print(f"PyBytesReader, version {version}")
 
 def set_output_directory() -> None:
     output_dir = './output/'

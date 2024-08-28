@@ -1,6 +1,7 @@
 #!.venv\Scripts\python.exe
 
 try:
+    from pybytesreader.modules.core_functions import print_version as pv
     from pybytesreader.modules.core_functions import \
         read_file_from_line_byte_by_byte as rfflbbb
 except ImportError as e:
@@ -9,6 +10,8 @@ except ImportError as e:
     raise e
 
 def main() -> None:
+
+    pv()
 
     # Example of use
     input_file = input('Input file path: ')
