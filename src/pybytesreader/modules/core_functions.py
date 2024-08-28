@@ -5,8 +5,9 @@ import pkg_resources
 
 
 def print_version() -> None:
-    version = pkg_resources.require("pybytesreader")[0].version
-    print(f"PyBytesReader, version {version}")
+    version = pkg_resources.require('pybytesreader')[0].version
+    project_name = pkg_resources.require('pybytesreader')[0].project_name
+    print(f'{project_name}, version {version}')
 
 def set_output_directory() -> None:
     output_dir = './output/'
@@ -24,7 +25,7 @@ def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number
             while current_line < start_line - 1:
                 infile.readline()
                 current_line += 1
-            print(f'I read all the rows until the number ', start_line - 1)
+            print(f'I read all the rows until the number', start_line - 1)
     
             current_byte: int = 0
 
@@ -34,11 +35,11 @@ def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number
                     break
                 outfile.write(byte)
                 current_byte += 1
-            print(f'I just read the first ', number_of_bytes, ' bytes of the row number ', start_line)
+            print(f'I just read the first', number_of_bytes, 'bytes starting from the row number', start_line)
             
     except (FileNotFoundError, IsADirectoryError, PermissionError) as e:
-        logging.log(logging.ERROR, f"{e}")
+        logging.log(logging.ERROR, f'{e}')
         raise e
     except Exception as e:
-        logging.log(logging.ERROR, f"Unexpected error: {e}")
+        logging.log(logging.ERROR, f'Unexpected error: {e}')
         raise e
