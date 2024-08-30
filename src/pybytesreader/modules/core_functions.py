@@ -1,13 +1,20 @@
+import argparse
 import logging
 import os.path
 
 import pkg_resources
 
 
-def print_version() -> None:
+def get_version() -> str:
     version = pkg_resources.require('pybytesreader')[0].version
     project_name = pkg_resources.require('pybytesreader')[0].project_name
-    print(f'{project_name}, version {version}')
+    return f'{project_name}, version {version}'
+
+__VERSION__ = get_version()
+
+parser = argparse.ArgumentParser(description = 'Simple file reader in Python3.')
+parser.add_argument('-v', '--version', action = 'version', version = __VERSION__)
+
 
 def set_output_directory() -> None:
     output_dir = './output/'
