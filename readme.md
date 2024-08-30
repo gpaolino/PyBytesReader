@@ -59,6 +59,13 @@ Run the program: <br/>
 
     python pybytesreader
 
+To modify how the tool operates, use the following options:
+
+| Option                    | Description                                                                                                                                                            |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -v, --version             | Print the current version of the tool.                                                                                                                                 |
+
+
 ### Build PyBytesReader in an executable file
 Usinng pyinstaller you can create a .exe file for the application. <br/>
 Navigate to the project directory and build your executable file: <br/>
