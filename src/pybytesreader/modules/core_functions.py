@@ -16,13 +16,16 @@ parser = argparse.ArgumentParser(description = 'Simple file reader in Python3.')
 parser.add_argument('-v', '--version', action = 'version', version = __VERSION__)
 
 
-def set_output_directory() -> None:
+def set_output_directory() -> str:
     output_dir = './output/'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
+    return output_dir
 
 def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number_of_bytes) -> None:
     # todo set default output directory
+    output_file = set_output_directory() + output_file
+
     try:
         with open(input_file, 'rb') as infile, open(output_file, 'wb') as outfile:
 

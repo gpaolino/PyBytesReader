@@ -107,4 +107,4 @@ GitHub.sublime-settings
 .history
 
 # Custom Paths
-test_data
+output/
