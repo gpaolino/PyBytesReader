@@ -109,6 +109,7 @@ GitHub.sublime-settings
 # Sonarqube
 .scannerwork/
 sonar-project.properties
+sonar-scan-run.txt
 
 # Custom Paths
 output/

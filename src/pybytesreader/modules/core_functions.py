@@ -23,7 +23,7 @@ def set_output_directory() -> str:
     return output_dir
 
 def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number_of_bytes) -> None:
-    # todo set default output directory
+    # Set default output directory
     output_file = set_output_directory() + output_file
 
     try:
@@ -35,7 +35,7 @@ def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number
             while current_line < start_line - 1:
                 infile.readline()
                 current_line += 1
-            print(f'I read all the rows until the number', start_line - 1)
+            print(f'I read all the rows until the number {start_line - 1}')
     
             current_byte: int = 0
 
@@ -45,7 +45,7 @@ def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number
                     break
                 outfile.write(byte)
                 current_byte += 1
-            print(f'I just read the first', number_of_bytes, 'bytes starting from the row number', start_line)
+            print(f'I just read the first {number_of_bytes} bytes starting from the row number {start_line}')
             
     except (FileNotFoundError, IsADirectoryError, PermissionError) as e:
         logging.log(logging.ERROR, f'{e}')
