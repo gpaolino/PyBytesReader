@@ -106,5 +106,9 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 
+# Sonarqube
+.scannerwork/
+sonar-project.properties
+
 # Custom Paths
 output/
