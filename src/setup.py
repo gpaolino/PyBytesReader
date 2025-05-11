@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
       name='pybytesreader',
-      version='0.0.2',
+      version='0.0.3',
       description='PyBytesReader App',
       author='Paolo Guglielmino',
       author_email='gp.guglielminopaolo@gmail.com',

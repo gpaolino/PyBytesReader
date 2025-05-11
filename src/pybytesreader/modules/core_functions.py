@@ -4,17 +4,21 @@ import os.path
 
 import pkg_resources
 
+parser = argparse.ArgumentParser(description = 'Simple file reader in Python3.')
 
 def get_version() -> str:
     version = pkg_resources.require('pybytesreader')[0].version
     project_name = pkg_resources.require('pybytesreader')[0].project_name
     return f'{project_name}, version {version}'
-
 __VERSION__ = get_version()
-
-parser = argparse.ArgumentParser(description = 'Simple file reader in Python3.')
 parser.add_argument('-v', '--version', action = 'version', version = __VERSION__)
 
+parser.add_argument('input_file', metavar = 'input_file', type = str, help = 'Input file path')
+parser.add_argument('output_file', metavar = 'output_file', type = str, help = 'Output file name')
+args = parser.parse_args()
+
+input_file = args.input_file
+output_file = args.output_file
 
 def set_output_directory() -> str:
     output_dir = './output/'
@@ -22,12 +26,12 @@ def set_output_directory() -> str:
         os.makedirs(output_dir)
     return output_dir
 
-def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number_of_bytes) -> None:
+def read_file_from_line_byte_by_byte(start_line, number_of_bytes) -> None:
     # Set default output directory
-    output_file = set_output_directory() + output_file
+    output_file_path = set_output_directory() + output_file
 
     try:
-        with open(input_file, 'rb') as infile, open(output_file, 'wb') as outfile:
+        with open(input_file, 'rb') as infile, open(output_file_path, 'wb') as outfile:
 
             current_line: int = 0
 
