@@ -10,6 +10,7 @@ def get_version() -> str:
     version = pkg_resources.require('pybytesreader')[0].version
     project_name = pkg_resources.require('pybytesreader')[0].project_name
     return f'{project_name}, version {version}'
+
 __VERSION__ = get_version()
 parser.add_argument('-v', '--version', action = 'version', version = __VERSION__)
 

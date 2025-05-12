@@ -106,7 +106,7 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 
-# Sonarqube
+# SonarQube
 .scannerwork/
 sonar-project.properties
 sonar-scan-run.txt
