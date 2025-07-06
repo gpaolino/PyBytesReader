@@ -16,6 +16,7 @@ def set_output_directory() -> str:
     return output_dir
 
 def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number_of_bytes) -> None:
+
     # Set default output directory
     output_file_path = set_output_directory() + output_file
 
@@ -24,7 +25,7 @@ def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number
 
             current_line: int = 0
 
-            # Read until the desired line
+            # Read until the target line
             while current_line < start_line - 1:
                 infile.readline()
                 current_line += 1
@@ -32,7 +33,7 @@ def read_file_from_line_byte_by_byte(input_file, output_file, start_line, number
     
             current_byte: int = 0
 
-            # Start reading byte by byte from the desired line
+            # Start reading byte by byte from the target line
             while (byte := infile.read(1)):
                 if(current_byte == number_of_bytes):
                     break
